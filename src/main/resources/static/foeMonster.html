@@ -1,0 +1,13 @@
+<p>
+    Nom : <span id="nameValue" class="bold"></span> <br>
+    HP : <span id="HPValue" class="bold" ></span><br>
+    Attaque : <span id="attackValue" class="bold"></span><br>
+</p>
+
+
+<script>
+//cherche et affiche le nom
+document.getElementById("nameValue").innerHTML = findValueCookie("foeName");
+document.getElementById("attackValue").innerHTML = findValueCookie("foeAttack");
+document.getElementById("HPValue").innerHTML = findValueCookie("foeHP");
+</script>
