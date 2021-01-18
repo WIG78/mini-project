@@ -18,7 +18,7 @@
             <a href="#" class="brand-logo center"> mini-project</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="chooseCharacter.html">Choisir un personnage</a></li>
+                <li id="chooseCharacter"><a>Choisir un personnage</a></li>
                 <li id="character"><a id="linkCharacter"></a></li>
             </ul>
         </div>
@@ -29,13 +29,16 @@
     <div class="row center-align">
         <div class="col s2">
             <h5 class="center">Actions</h5>
-            <div class="collection">
-                <a href="#!" class="collection-item light-blue-text darken-2-text">Combattre</a>
-                <a href="#!" class="collection-item light-blue-text darken-2-text">Prochain adversaire</a>
+            <div id="menu_action" hidden class="row">
+                    <ul>
+                        <li><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
+                        <li hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
+                    </ul>
             </div>
         </div>
         <div class="col s10">
             <div id="includedContent"></div>
+            <p id="ma-valeur"></p>
         </div>
     </div>
 </div>
@@ -56,10 +59,23 @@
     if(document.cookie.indexOf('name=') != -1 && findValueCookie('name') != "")
     {
         document.getElementById("linkCharacter").innerHTML = findValueCookie('name');
+        document.getElementById("menu_action").hidden = false;
+    }
+
+    if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
+    {
+         if(findValueCookie('foeHP') <= 0)
+         {
+            document.getElementById("nextFoe").hidden = false;
+         }
     }
 
     character.onclick = function() {
       $("#includedContent").load("characterBloc.html");
+    }
+
+    chooseCharacter.onclick = function() {
+      $("#includedContent").load("chooseCharacter.html");
     }
 
 </script>
