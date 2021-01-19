@@ -1,42 +1,58 @@
 
-Psquid:S4719!"9Replace charset name argument with StandardCharsets.UTF_8(ŒÔÆ¤
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(Èží»
-¶%squid:RedundantThrowsDeclarationCheck‹"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
-Usquid:S4719"9Replace charset name argument with StandardCharsets.UTF_8(ˆ€ážýÿÿÿÿ
-µ%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
-esquid:S4488‰"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ö¥Õ±øÿÿÿÿ
-bsquid:S1192"FDefine a constant instead of duplicating this literal "UTF-8" 3 times.(ˆ€ážýÿÿÿÿ
-Psquid:S28647"4Iterate over the "entrySet" instead of the "keySet".(ÖÌÏÀûÿÿÿÿ
-µ%squid:RedundantThrowsDeclarationCheckk"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
-jsquid:S1192O"GDefine a constant instead of duplicating this literal "nbHits" 3 times.(ù¶ï‚ýÿÿÿÿ8œºòïì.
-fsquid:S4488$"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ûü“âþÿÿÿÿ
-Psquid:S2864."4Iterate over the "entrySet" instead of the "keySet".(ÖÌÏÀûÿÿÿÿ
-T
-squid:S1068"9Replace this use of System.out or System.err by a logger.( „î¢øÿÿÿÿ
-¢%squid:RedundantThrowsDeclarationCheck5"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÊÎ¶Þÿÿÿÿÿ
-O
-squid:S106n"9Replace this use of System.out or System.err by a logger.(Ö÷ßÁ
-gsquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
-dsquid:S4488i"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(–¢ÖÇÿÿÿÿÿ
-dsquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¦‹æ°ÿÿÿÿÿ
-asquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(üº”Û
-µ%squid:RedundantThrowsDeclarationCheck,"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+µ%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
 T
 squid:S106/"9Replace this use of System.out or System.err by a logger.( „î¢øÿÿÿÿ
-Usquid:S1854@"9Remove this useless assignment to local variable "chars".(Ù˜ë…þÿÿÿÿ
-gsquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(­ÌÂÌùÿÿÿÿ
-_squid:S4488*"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(àÝð¢
-`squid:S4488<"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(â§æ
+¢%squid:RedundantThrowsDeclarationCheck5"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÊÎ¶Þÿÿÿÿÿ
 wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ž°í·øÿÿÿÿ
-Qsquid:S4719™"9Replace charset name argument with StandardCharsets.UTF_8(ø²³Å
+`squid:S44883"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(¬šŠB
+Psquid:S2864."4Iterate over the "entrySet" instead of the "keySet".(ÖÌÏÀûÿÿÿÿ
+µ%squid:RedundantThrowsDeclarationCheck5"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+Qsquid:S4719ã"9Replace charset name argument with StandardCharsets.UTF_8(ø²³Å
+jsquid:S1192O"GDefine a constant instead of duplicating this literal "nbHits" 5 times.(ù¶ï‚ýÿÿÿÿ8œºòïì.
+dsquid:S4488i"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(–¢ÖÇÿÿÿÿÿ
+Psquid:S28647"4Iterate over the "entrySet" instead of the "keySet".(ÖÌÏÀûÿÿÿÿ
+¢%squid:RedundantThrowsDeclarationCheck,"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÊÎ¶Þÿÿÿÿÿ
+µ%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+fsquid:S4488$"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ûü“âþÿÿÿÿ
+Fsquid:S1481@"*Remove this unused "chars" local variable.(Ù˜ë…þÿÿÿÿ
+psquid:S3776j"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(—…ä„8ÆéÀðì.
+gsquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+µ%squid:RedundantThrowsDeclarationCheck,"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+bsquid:S1192"FDefine a constant instead of duplicating this literal "UTF-8" 3 times.(ˆ€ážýÿÿÿÿ
+asquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(üº”Û
+dsquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¦‹æ°ÿÿÿÿÿ
+µ%squid:RedundantThrowsDeclarationCheck&"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Èží»
+T
+squid:S1068"9Replace this use of System.out or System.err by a logger.( „î¢øÿÿÿÿ
+¶%squid:RedundantThrowsDeclarationCheckŠ"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+Usquid:S4719"9Replace charset name argument with StandardCharsets.UTF_8(ˆ€ážýÿÿÿÿ
+Psquid:S4719!"9Replace charset name argument with StandardCharsets.UTF_8(ŒÔÆ¤
 O
 squid:S106 "9Replace this use of System.out or System.err by a logger.(‡¾êÂ
-`squid:S44883"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(¬šŠB
-Fsquid:S1481@"*Remove this unused "chars" local variable.(Ù˜ë…þÿÿÿÿ
+_squid:S4488*"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(àÝð¢
+Usquid:S1854@"9Remove this useless assignment to local variable "chars".(Ù˜ë…þÿÿÿÿ
+O
+squid:S106n"9Replace this use of System.out or System.err by a logger.(Ö÷ßÁ
 @squid:S3330I"$Add the "HttpOnly" cookie attribute.(•¾¹¬øÿÿÿÿ
-µ%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
-µ%squid:RedundantThrowsDeclarationCheck&"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
-psquid:S3776j"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(—…ä„8ÆéÀðì.
-¢%squid:RedundantThrowsDeclarationCheck,"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÊÎ¶Þÿÿÿÿÿ
-µ%squid:RedundantThrowsDeclarationCheck5"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+`squid:S4488<"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(â§æ
+µ%squid:RedundantThrowsDeclarationCheckk"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ
+esquid:S4488Ò"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ö¥Õ±øÿÿÿÿ
+gsquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(­ÌÂÌùÿÿÿÿ
+dsquid:S1192N"FDefine a constant instead of duplicating this literal "dodge" 4 times.(ÖŽ¬¸8×²²ºð.
+dsquid:S1192L"FDefine a constant instead of duplicating this literal "HPMax" 3 times.(ï…ëÅ8×²²ºð.
+vsquid:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(¼‡³ øÿÿÿÿ8×²²ºð.
+Xsquid:S1854Å"9Remove this useless assignment to local variable "foeHP".(¤ñôÈ8×²²ºð.
+lsquid:S4488ˆ"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¦Ÿæ“ýÿÿÿÿ8×²²ºð.
+W
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ö÷ßÁ8×²²ºð.
+W
+squid:S106½"9Replace this use of System.out or System.err by a logger.(ê‡¯Ó8×²²ºð.
+\
+squid:S106À"9Replace this use of System.out or System.err by a logger.(™À•”ÿÿÿÿÿ8×²²ºð.
+W
+squid:S106Æ"9Replace this use of System.out or System.err by a logger.(ê‡¯Ó8×²²ºð.
+\
+squid:S106É"9Replace this use of System.out or System.err by a logger.(™À•”ÿÿÿÿÿ8×²²ºð.
+½%squid:RedundantThrowsDeclarationCheckÔ"Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException' which is a subclass of 'java.io.IOException'.(ÊÎ¶Þÿÿÿÿÿ8×²²ºð.

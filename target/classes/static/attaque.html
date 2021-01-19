@@ -27,18 +27,18 @@
 
 <div class="container">
     <div class="row center-align">
-        <div class="col s2">
-            <h5 class="center">Actions</h5>
-            <div id="menu_action" hidden class="row">
-                    <ul>
-                        <li><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
-                        <li hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
-                    </ul>
-            </div>
+        <div class="col s3">
         </div>
-        <div class="col s10">
-            <div id="includedContent"></div>
-            <p id="ma-valeur"></p>
+        <div class="col s6">
+            <div id="includedContent">
+                <div id="form">
+                    <label for="dammage">Puissance de l'attaque</label>
+                    <input type="number" id="dammage" name="dammage">
+                    <button id="attaquer" class="btn waves-effect waves-light light-blue darken-2" type="submit">Attaquer </button>
+                </div>
+                <p id="information"></p>
+                <p id="KO"></p>
+            </div>
         </div>
     </div>
 </div>
@@ -56,10 +56,38 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
+
+    attaquer.onclick = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/attack', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log("onload");
+                document.getElementById("form").hidden = true
+                document.getElementById("information").innerHTML = xhr.responseText;
+                console.log(xhr.responseText);
+            }
+            else {
+                alert('Request failed. Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send("dammage=" + document.getElementById("dammage").value);
+        console.log('fin fonction');
+    }
+
     if(document.cookie.indexOf('name=') != -1 && findValueCookie('name') != "")
     {
         document.getElementById("linkCharacter").innerHTML = findValueCookie('name');
-        document.getElementById("menu_action").hidden = false;
+    }
+
+    if(document.cookie.indexOf('HP=') != -1 && findValueCookie('HP') != "")
+    {
+         if(findValueCookie('HP') <= 0)
+         {
+            document.getElementById("form").hidden = true
+            document.getElementById("KO").innerHTML = "Vous êtes KO ! Vous avez battu : " + findValueCookie('foeNumber') + "adversaire(s).";
+         }
     }
 
     if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
