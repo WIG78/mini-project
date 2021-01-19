@@ -36,7 +36,8 @@
                     <input type="number" id="dammage" name="dammage">
                     <button id="attaquer" class="btn waves-effect waves-light light-blue darken-2" type="submit">Attaquer </button>
                 </div>
-                    <p id="test"></p>
+                <p id="information"></p>
+                <p id="KO"></p>
             </div>
         </div>
     </div>
@@ -64,7 +65,7 @@
             if (xhr.status === 200) {
                 console.log("onload");
                 document.getElementById("form").hidden = true
-                document.getElementById("test").innerHTML = xhr.responseText;
+                document.getElementById("information").innerHTML = xhr.responseText;
                 console.log(xhr.responseText);
             }
             else {
@@ -75,10 +76,18 @@
         console.log('fin fonction');
     }
 
-
     if(document.cookie.indexOf('name=') != -1 && findValueCookie('name') != "")
     {
         document.getElementById("linkCharacter").innerHTML = findValueCookie('name');
+    }
+
+    if(document.cookie.indexOf('HP=') != -1 && findValueCookie('HP') != "")
+    {
+         if(findValueCookie('HP') <= 0)
+         {
+            document.getElementById("form").hidden = true
+            document.getElementById("KO").innerHTML = "Vous êtes KO ! Vous avez battu : " + findValueCookie('foeNumber') + "adversaire(s).";
+         }
     }
 
     if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
