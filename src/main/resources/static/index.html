@@ -31,8 +31,8 @@
             <h5 class="center">Actions</h5>
             <div id="menu_action" hidden class="row">
                     <ul>
-                        <li><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
-                        <li hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
+                        <li id="combattre" ><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
+                        <li id="nextFoe" hidden><a href="/nextFoe" class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
                     </ul>
             </div>
         </div>
@@ -62,10 +62,19 @@
         document.getElementById("menu_action").hidden = false;
     }
 
+    if(document.cookie.indexOf('HP=') != -1 && findValueCookie('HP') != "")
+    {
+         if(findValueCookie('HP') <= 0)
+         {
+            document.getElementById("form").hidden = true;
+         }
+    }
+
     if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
     {
          if(findValueCookie('foeHP') <= 0)
          {
+            document.getElementById("combattre").hidden = true;
             document.getElementById("nextFoe").hidden = false;
          }
     }

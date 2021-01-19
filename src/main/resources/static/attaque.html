@@ -28,6 +28,12 @@
 <div class="container">
     <div class="row center-align">
         <div class="col s3">
+            <h5 class="center">Actions</h5>
+            <div id="menu_action" hidden class="row">
+                <ul>
+                    <li id="nextFoe" hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col s6">
             <div id="includedContent">
@@ -64,7 +70,6 @@
         xhr.onload = function() {
             if (xhr.status === 200) {
                 console.log("onload");
-                document.getElementById("form").hidden = true
                 document.getElementById("information").innerHTML = xhr.responseText;
                 console.log(xhr.responseText);
             }
@@ -85,7 +90,7 @@
     {
          if(findValueCookie('HP') <= 0)
          {
-            document.getElementById("form").hidden = true
+            document.getElementById("form").hidden = true;
             document.getElementById("KO").innerHTML = "Vous êtes KO ! Vous avez battu : " + findValueCookie('foeNumber') + " adversaire(s).";
          }
     }
@@ -94,6 +99,7 @@
     {
          if(findValueCookie('foeHP') <= 0)
          {
+            document.getElementById("form").hidden = true;
             document.getElementById("nextFoe").hidden = false;
          }
     }
