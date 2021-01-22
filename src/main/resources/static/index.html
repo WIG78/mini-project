@@ -9,17 +9,20 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
     <script src="cookies.js"></script>
+    <script src="function.js"></script>
 </head>
 
 <body>
+
 <div class="container">
     <nav>
         <div class="nav-wrapper light-blue darken-2">
             <a href="#" class="brand-logo center"> mini-project</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="index.html">Home</a></li>
+                <li id="home"><a href="index.html">Home</a></li>
                 <li id="chooseCharacter"><a>Choisir un personnage</a></li>
                 <li id="character"><a id="linkCharacter"></a></li>
+                <li id="foe"><a class="red-text text-accent-4" id="linkFoe"></a></li>
             </ul>
         </div>
     </nav>
@@ -31,52 +34,67 @@
             <h5 class="center">Actions</h5>
             <div id="menu_action" hidden class="row">
                     <ul>
-                        <li><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
-                        <li hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
+                        <li id="combattre" ><a id="clic" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
+                        <li id="nextFoe" hidden><a class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
                     </ul>
             </div>
         </div>
         <div class="col s10">
-            <div id="includedContent"></div>
-            <p id="ma-valeur"></p>
+            <div id="includedContent">
+                <p class="col s6 offset-s2" id="KO"></p>
+                <p class="col s6 offset-s2" id="information"></p>
+            </div>
+
         </div>
     </div>
 </div>
 
 <div class="container">
-    <footer class="page-footer light-blue darken-2">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2021 Copyright
+    <div class="row">
+        <footer class="page-footer light-blue darken-2">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2021 Copyright - William MARVIN M1 MIAGE - Programmation web
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </div>
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
-    if(document.cookie.indexOf('name=') != -1 && findValueCookie('name') != "")
-    {
-        document.getElementById("linkCharacter").innerHTML = findValueCookie('name');
-        document.getElementById("menu_action").hidden = false;
+
+    nextFoe.onclick = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/nextFoe', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function () {
+            console.log(xhr.status)
+            if (xhr.status === 200) {
+                console.log(xhr.responseText)
+                if(xhr.responseText == "Tous les ennemis sont vaincus.")
+                {
+                    document.getElementById("information").innerHTML = xhr.responseText;
+                    console.log(xhr.responseText);
+                }
+                else{
+                    window.location.href = "/";
+                }
+            } else {
+                alert('Request failed. Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send();
     }
 
-    if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
-    {
-         if(findValueCookie('foeHP') <= 0)
-         {
-            document.getElementById("nextFoe").hidden = false;
-         }
-    }
+    document.getElementById('home').className = "active";
+    checkPerso('name=', 'name', "linkCharacter", "menu_action");
+    checkFoe('foeName=', 'foeName', 'linkFoe');
+    checkHPPerso('HP=', 'HP', 'KO', 'foeNumber')
+    checkHPFoe('foeHP=', 'foeHP', 'combattre', 'nextFoe');
 
-    character.onclick = function() {
-      $("#includedContent").load("characterBloc.html");
-    }
-
-    chooseCharacter.onclick = function() {
-      $("#includedContent").load("chooseCharacter.html");
-    }
+    navBarAction();
 
 </script>
 </body>
