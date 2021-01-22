@@ -219,24 +219,27 @@ public class MyController {
 	public void nextFoe(HttpServletRequest request, HttpServletResponse response)
 			throws UnsupportedEncodingException, IOException {
 		int previousFoe = -1;
+		int countKOFoe = 0;
 		for (Cookie c : request.getCookies()) {
 			if (c.getName().equals("foeNumber")) {
 				previousFoe = Integer.parseInt(c.getValue());
 			}
+			if (c.getName().equals("countKOFoe")) {
+				countKOFoe = Integer.parseInt(c.getValue());
+			}
 		}
 		try {
 			Character foe = Universe.getMonsters().get(previousFoe + 1);
+			response.addCookie(new Cookie("countKOFoe", "" + (countKOFoe + 1)));
 			response.addCookie(new Cookie("foeNumber", "" + (previousFoe + 1)));
 			response.addCookie(new Cookie("foeName", foe.getName()));
 			response.addCookie(new Cookie("foeHP", "" + foe.getHpMax()));
 			response.addCookie(new Cookie("foeAttack", "" + foe.getAttack()));
 			response.addCookie(new Cookie("foeDodge", "" + foe.getDodgeProbability()));
+			response.sendRedirect("/index.html");
 		} catch (IndexOutOfBoundsException e) {
-			response.getOutputStream().write("Tous les ennemis sont vaincus".getBytes("UTF-8"));
+			response.getOutputStream().write("Tous les ennemis sont vaincus.".getBytes("UTF-8"));
 		}
-		response.sendRedirect("/index.html");
-
-		//Todo renvoyer texte
 	}
 
 }
