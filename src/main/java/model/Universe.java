@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Universe {
 
+	private Universe() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	private static ArrayList<Character> characters = new ArrayList<Character>();
 	private static ArrayList<Character> monsters = new ArrayList<Character>();
 

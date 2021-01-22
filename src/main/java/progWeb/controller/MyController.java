@@ -3,7 +3,6 @@ package progWeb.controller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +18,15 @@ import model.Universe;
 @Controller
 public class MyController {
 
+	public static final String DODGE = "dodge";
+	public static final String NBHITS = "nbHits";
+	public static final String FOENUMBER = "foeNumber";
+	public static final String FOEHP = "foeHP";
+
 	@RequestMapping(value = "/character", method = RequestMethod.POST)
 	public void choiceCharacter(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String charName = request.getParameter("name");
 		Character chosen = null;
-		ArrayList<Character> chars = Universe.getCharacters();
 		for (Character c : Universe.getCharacters()) {
 			if (c.getName().equals(charName)) {
 				chosen = c;
@@ -37,9 +40,9 @@ public class MyController {
 			response.addCookie(new Cookie("HP", "" + chosen.getHpMax()));
 			response.addCookie(new Cookie("HPMax", "" + chosen.getHpMax()));
 			response.addCookie(new Cookie("attack", "" + chosen.getAttack()));
-			response.addCookie(new Cookie("dodge", "" + chosen.getDodgeProbability()));
-			response.addCookie(new Cookie("nbHits", "" + chosen.getNbHits()));
-			response.addCookie(new Cookie("foeNumber", "" + -1));
+			response.addCookie(new Cookie(DODGE, "" + chosen.getDodgeProbability()));
+			response.addCookie(new Cookie(NBHITS, "" + chosen.getNbHits()));
+			response.addCookie(new Cookie(FOENUMBER, "" + -1));
 		}
 		response.sendRedirect("/nextFoe");
 	}
@@ -75,14 +78,14 @@ public class MyController {
 				if (c.getName().equals("HPMax")) {
 					hpMax = Integer.parseInt(c.getValue());
 				}
-				if (c.getName().equals("nbHits")) {
+				if (c.getName().equals(NBHITS)) {
 					nbHits = Integer.parseInt(c.getValue());
 				}
-				if (c.getName().equals("dodge")) {
+				if (c.getName().equals(DODGE)) {
 					dodge = Double.parseDouble(c.getValue());
 				}
 
-				if (c.getName().equals("foeHP")) {
+				if (c.getName().equals(FOEHP)) {
 					foeHP = Integer.parseInt(c.getValue());
 				}
 				if (c.getName().equals("foeAttack")) {
@@ -104,7 +107,7 @@ public class MyController {
 			}
 			else{
 				result = result + "Personnage : Esquive" ;
-				System.out.println("dodge");
+				System.out.println(DODGE);
 			}
 
 			// Test attaque sur foe
@@ -115,13 +118,13 @@ public class MyController {
 			}
 			else{
 				result = result + " <br> Ennemi : Esquive" ;
-				System.out.println("dodge");
+				System.out.println(DODGE);
 			}
 
 			response.addCookie(new Cookie("HP", "" + hp));
-			response.addCookie(new Cookie("nbHits", "" + nbHits));
+			response.addCookie(new Cookie(NBHITS, "" + nbHits));
 
-			response.addCookie(new Cookie("foeHP", "" + foeHP));
+			response.addCookie(new Cookie(FOEHP, "" + foeHP));
 		}
 		response.getOutputStream().write(result.getBytes("UTF-8"));
 	}
@@ -132,7 +135,7 @@ public class MyController {
 		int previousFoe = -1;
 		int countKOFoe = 0;
 		for (Cookie c : request.getCookies()) {
-			if (c.getName().equals("foeNumber")) {
+			if (c.getName().equals(FOENUMBER)) {
 				previousFoe = Integer.parseInt(c.getValue());
 			}
 			if (c.getName().equals("countKOFoe")) {
@@ -142,9 +145,9 @@ public class MyController {
 		try {
 			Character foe = Universe.getMonsters().get(previousFoe + 1);
 			response.addCookie(new Cookie("countKOFoe", "" + (countKOFoe + 1)));
-			response.addCookie(new Cookie("foeNumber", "" + (previousFoe + 1)));
+			response.addCookie(new Cookie(FOENUMBER, "" + (previousFoe + 1)));
 			response.addCookie(new Cookie("foeName", foe.getName()));
-			response.addCookie(new Cookie("foeHP", "" + foe.getHpMax()));
+			response.addCookie(new Cookie(FOEHP, "" + foe.getHpMax()));
 			response.addCookie(new Cookie("foeAttack", "" + foe.getAttack()));
 			response.addCookie(new Cookie("foeDodge", "" + foe.getDodgeProbability()));
 			response.sendRedirect("/index.html");
