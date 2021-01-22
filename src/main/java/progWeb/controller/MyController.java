@@ -182,14 +182,13 @@ public class MyController {
 				}
 			}
 
-
 			double random = Math.random();
 			// Test attaque sur personnage
 			if(random > dodge){
 				hp = (hp - foeAttack > 0) ? hp - foeAttack : 0;
 				// Nombre de dégats reçu pour le personnage
 				nbHits = (nbHits + foeAttack > hpMax) ? hpMax : nbHits + foeAttack;
-				result = result + "Personnage : -" + foeAttack ;
+				result = result + "Personnage : -" + foeAttack + " pv";
 				System.out.println("take");
 			}
 			else{
@@ -200,11 +199,11 @@ public class MyController {
 			// Test attaque sur foe
 			if(random > foeDodge){
 				foeHP = (foeHP - dammage > 0) ? foeHP - dammage : 0;
-				result = result + " / Foe : -" + dammage ;
+				result = result + " <br> Ennemi : -" + dammage + " pv" ;
 				System.out.println("take");
 			}
 			else{
-				result = result + " / Personnage : Esquive" ;
+				result = result + " <br> Ennemi : Esquive" ;
 				System.out.println("dodge");
 			}
 
@@ -223,7 +222,6 @@ public class MyController {
 		for (Cookie c : request.getCookies()) {
 			if (c.getName().equals("foeNumber")) {
 				previousFoe = Integer.parseInt(c.getValue());
-				System.out.println("test");
 			}
 		}
 		try {
@@ -237,6 +235,8 @@ public class MyController {
 			response.getOutputStream().write("Tous les ennemis sont vaincus".getBytes("UTF-8"));
 		}
 		response.sendRedirect("/index.html");
+
+		//Todo renvoyer texte
 	}
 
 }

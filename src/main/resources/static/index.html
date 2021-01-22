@@ -9,6 +9,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
     <script src="cookies.js"></script>
+    <script src="function.js"></script>
 </head>
 
 <body>
@@ -31,13 +32,15 @@
             <h5 class="center">Actions</h5>
             <div id="menu_action" hidden class="row">
                     <ul>
-                        <li id="combattre" ><a id="clic" href="/attaque.html" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
+                        <li id="combattre" ><a id="clic" class="waves-effect waves-light btn light-blue darken-2">Combattre</a></li>
                         <li id="nextFoe" hidden><a href="/nextFoe" class="waves-effect waves-light btn light-blue darken-2">Prochain adversaire</a></li>
                     </ul>
             </div>
         </div>
         <div class="col s10">
-            <div id="includedContent"></div>
+            <div id="includedContent">
+                <p class="col s6 offset-s2" id="KO"></p>
+            </div>
             <p id="ma-valeur"></p>
         </div>
     </div>
@@ -56,36 +59,11 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
-    if(document.cookie.indexOf('name=') != -1 && findValueCookie('name') != "")
-    {
-        document.getElementById("linkCharacter").innerHTML = findValueCookie('name');
-        document.getElementById("menu_action").hidden = false;
-    }
+    checkPerso('name=', 'name', "linkCharacter", "menu_action");
+    checkHPPerso('HP=', 'HP', 'KO', 'foeNumber')
+    checkHPFoe('foeHP=', 'foeHP', 'combattre', 'nextFoe');
 
-    if(document.cookie.indexOf('HP=') != -1 && findValueCookie('HP') != "")
-    {
-         if(findValueCookie('HP') <= 0)
-         {
-            document.getElementById("form").hidden = true;
-         }
-    }
-
-    if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
-    {
-         if(findValueCookie('foeHP') <= 0)
-         {
-            document.getElementById("combattre").hidden = true;
-            document.getElementById("nextFoe").hidden = false;
-         }
-    }
-
-    character.onclick = function() {
-      $("#includedContent").load("characterBloc.html");
-    }
-
-    chooseCharacter.onclick = function() {
-      $("#includedContent").load("chooseCharacter.html");
-    }
+    navBarAction();
 
 </script>
 </body>

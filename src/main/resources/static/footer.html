@@ -1,0 +1,38 @@
+<div class="container">
+    <footer class="page-footer light-blue darken-2">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 Copyright
+            </div>
+        </div>
+    </footer>
+</div>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script>
+
+    checkPerso('name=', 'name', "linkCharacter", "menu_action");
+
+    if(document.cookie.indexOf('HP=') != -1 && findValueCookie('HP') != "")
+    {
+        if(findValueCookie('HP') <= 0)
+        {
+            document.getElementById("combattre").hidden = true;
+        }
+    }
+
+    if(document.cookie.indexOf('foeHP=') != -1 && findValueCookie('foeHP') != "")
+    {
+        if(findValueCookie('foeHP') <= 0)
+        {
+            document.getElementById("combattre").hidden = true;
+            document.getElementById("nextFoe").hidden = false;
+        }
+    }
+
+    navBarAction();
+
+</script>
+</body>
+</html>
