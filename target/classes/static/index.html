@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <title>Mini-Project | William MARVIN</title>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
-    <script src="cookies.js"></script>
-    <script src="function.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/function.js"></script>
 </head>
 
 <body>
@@ -54,7 +55,7 @@
         <footer class="page-footer light-blue darken-2">
             <div class="footer-copyright">
                 <div class="container">
-                    © 2021 Copyright - William MARVIN M1 MIAGE - Programmation web
+                    © 2021 Copyright - William MARVIN | M1 MIAGE - Programmation web
                 </div>
             </div>
         </footer>
@@ -72,7 +73,6 @@
         xhr.onload = function () {
             console.log(xhr.status)
             if (xhr.status === 200) {
-                console.log(xhr.responseText)
                 if(xhr.responseText == "Tous les ennemis sont vaincus.")
                 {
                     document.getElementById("information").innerHTML = xhr.responseText;

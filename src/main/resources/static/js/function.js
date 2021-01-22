@@ -9,7 +9,7 @@ function checkPerso(nameCookieIndex, findValuecookie, linkCharacter, menu_action
 function checkFoe(nameCookieIndex, findValuecookie, linkFoe) {
     if(document.cookie.indexOf(nameCookieIndex) != -1 && findValueCookie(findValuecookie) != "")
     {
-        document.getElementById(linkFoe).innerHTML = findValueCookie(findValuecookie) + " (" + findValueCookie('foeHP') + "pv)";;
+        document.getElementById(linkFoe).innerHTML = findValueCookie(findValuecookie) + " (" + findValueCookie('foeHP') + "pv)";
     }
 }
 
@@ -103,5 +103,29 @@ function navBarAction() {
         document.getElementById('foe').className = "disable";
         document.getElementById('chooseCharacter').className = "disable";
         document.getElementById('combattre').className = "active";
+    }
+}
+
+function attack() {
+    if(!checkHPPersoForm('HP=', 'HP', 'form', 'KO', 'foeNumber') || checkHPFoeForm('foeHP=', 'foeHP', 'form', 'combattre', 'nextFoe', 'KO'))
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/attack', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log("onload");
+                document.getElementById("information").innerHTML = xhr.responseText;
+                console.log(xhr.responseText);
+                checkHPFoeForm('foeHP=', 'foeHP', 'form','combattre', 'nextFoe', 'KO');
+                checkHPPersoForm('HP=', 'HP', 'form', 'KO', 'foeNumber')
+                checkPerso('name=', 'name', "linkCharacter", "menu_action");
+                checkFoe('foeName=', 'foeName', 'linkFoe');
+            } else {
+                alert('Request failed. Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send("dammage=" + document.getElementById("dammage").value);
+        console.log('fin fonction');
     }
 }
